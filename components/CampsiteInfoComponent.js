@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, FlatList, ScrollView} from 'react-native';
 import {Card, Icon} from 'react-native-elements';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import {CAMPSITES} from '../shared/campsites';
 import {COMMENTS} from '../shared/comments';
 
