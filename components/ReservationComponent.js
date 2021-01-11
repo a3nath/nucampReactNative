@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import { Text, View, ScrollView, StyleSheet, Switch, Button, Modal } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, Switch, Button, Modal, Picker } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Picker from '@react-native-community/picker';
 
 class Reservation extends Component {
     constructor(props){
