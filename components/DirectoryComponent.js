@@ -4,6 +4,7 @@ import { Tile } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from './LoadingComponent';
+import * as Animable from 'react-native-animatable';
 
 const mapStateToProps = state => {
     return {
@@ -30,15 +31,17 @@ class Directory extends Component {
 
         const renderDirectoryItem = ({item}) => {
             return (
-                <Tile
-                    title={item.name}
-                    caption={item.description}
-                    featured
-                    //OnPress calls the navigate function
-                    // navigate function args: screen to navigate, extra paramter
-                    onPress = {() => {navigate('CampsiteInfo', {campsiteId: item.id})}}
-                    imageSrc={{uri: baseUrl + item.image}}
-                />
+                <Animatable.View animate='fadeInRightBig' duration={2000} delay={500}>   
+                    <Tile
+                        title={item.name}
+                        caption={item.description}
+                        featured
+                        //OnPress calls the navigate function
+                        // navigate function args: screen to navigate, extra paramter
+                        onPress = {() => {navigate('CampsiteInfo', {campsiteId: item.id})}}
+                        imageSrc={{uri: baseUrl + item.image}}
+                    />
+                </Animatable.View>
             );
         };
 
