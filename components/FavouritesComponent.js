@@ -7,7 +7,7 @@ import { baseUrl } from '../shared/baseUrl';
 import { SwipeRow } from 'react-native-swipe-list-view';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { deleteFavourite } from '../redux/ActionCreators';
-import * as Animable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable';
 
 
 const mapStateToProps = state => {

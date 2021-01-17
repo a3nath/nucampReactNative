@@ -4,8 +4,7 @@ import {Card, Icon, Rating, Input} from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import { postFavourite, postComment } from '../redux/ActionCreators'
-import { Value } from 'react-native-reanimated';
-import * as Animable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
     return {
@@ -30,6 +29,8 @@ function RenderCampsite(props){
 
     const recognizeDrag = ({dx}) => (dx < -150) ? true : false;
 
+    const recognizeComment = ({dx}) => (dx > 200) ? true : false; 
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: () => {
@@ -52,16 +53,18 @@ function RenderCampsite(props){
                         {
                             text: 'OK',
                             onPress: () => props.favorite ?
-                                console.log('Already set as a favorite') : props.markFavorite()
+                                console.log('Already set as a favorite') : props.makeFavourite()
                         }
                     ],
                     { cancelable: false }
                 );
             }
+            if (recognizeComment(gestureState)) {
+                props.showModal()
+            }
             return true;
         }
     });
-
 
     if(campsite){
         return(

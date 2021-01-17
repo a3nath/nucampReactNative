@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import Loading from './LoadingComponent';
 
+
 const mapStateToProps = state => {
     return {
         campsites: state.campsites,
@@ -48,7 +49,7 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state={
-            scaleValue=new Animated.Value(0)
+            scaleValue:new Animated.Value(0)
         };
     }
 
